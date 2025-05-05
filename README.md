@@ -24,7 +24,7 @@ sudo dnf install @virtualization
 sudo systemctl enable --now libvirtd
 ```
 
-## Install tailscale into Fedora Host
+## Install tailscale
 ...
 
 ## Setup network bridge (br0)
