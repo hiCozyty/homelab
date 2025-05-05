@@ -5,7 +5,7 @@
 ## Requirements
 - At least 2 PCs
 - 1 USB to Ethernet NIC (2.5Gbps of higher)
-- Wireless router for local network devices (phones, PC2, TV, etc)
+- Wireless router for local network devices (phones, PC2, safe devices, etc)
 - Fedora workstation installed on PC1
 
 ## Architecture Overview
