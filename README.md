@@ -29,6 +29,8 @@ sudo dnf install cockpit cockpit-machines
 sudo usermod -aG libvirt,kvm $USER
 ```
 
+Physically connect the router/AP to the motherboard NIC
+
 Reboot
 
 setup cockpit
