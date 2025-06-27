@@ -25,8 +25,12 @@
 sudo dnf install qemu-kvm libvirt virt-install
 ```
 ```
-sudo dnf install cockpit
+sudo dnf install cockpit cockpit-machines
+sudo usermod -aG libvirt,kvm $USER
 ```
+
+Reboot
+
 setup cockpit
 ```
 sudo firewall-cmd --add-port=9090/tcp
