@@ -106,6 +106,10 @@ Then install
 
 Download the pfSense CE from `https://www.pfsense.org/download/`
 
+Extract the `gz` file 
+```
+gunzip netgate-installer-amd64.iso.gz 
+```
 
 ## Install tailscale inside pfSense
 ...
