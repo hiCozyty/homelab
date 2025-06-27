@@ -110,6 +110,12 @@ Extract the `gz` file
 ```
 gunzip netgate-installer-amd64.iso.gz 
 ```
+Move to correct directory to fix permissions issue
+```
+sudo mv /home/$USER/Downloads/netgate-installer-amd64.iso /var/lib/libvirt/images/
+sudo chown qemu:qemu /var/lib/libvirt/images/netgate-installer-amd64.iso
+
+```
 
 ## Install tailscale inside pfSense
 ...
