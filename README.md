@@ -92,6 +92,8 @@ sudo virsh net-autostart br0-net
 
 Go to localhost:9090
 
+Enable admin access
+
 Click Virtual Machines then Create and edit
 
 Remove the default virtio interface
@@ -116,6 +118,8 @@ sudo mv /home/$USER/Downloads/netgate-installer-amd64.iso /var/lib/libvirt/image
 sudo chown qemu:qemu /var/lib/libvirt/images/netgate-installer-amd64.iso
 
 ```
+
+During pfSense installation, make sure to use the USB NIC for the WAN and the virtual interface (br0) as the LAN
 
 ## Install tailscale inside pfSense
 ...
