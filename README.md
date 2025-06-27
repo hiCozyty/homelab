@@ -118,6 +118,15 @@ Change password
 
 Try to pull up shell from pfsense and type `ifconfig | less` to see the ip address of the vtnet interface. 
 Then compare with RHEL host's `ip route`
+flush
+```
+sudo nmcli connection modify br0 ipv4.addresses ""
+sudo nmcli connection modify br0 ipv4.gateway ""
+sudo nmcli connection modify br0 ipv4.method auto
+sudo nmcli connection down br0
+sudo nmcli connection up br0
+```
+then restart pfSense vm
 
 ## Install tailscale inside pfSense
 ...
