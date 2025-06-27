@@ -114,6 +114,10 @@ Default login is `admin:pfsense`
 Change password
 
 
+## Troubleshooting
+
+Try to pull up shell from pfsense and type `ifconfig | less` to see the ip address of the vtnet interface. 
+Then compare with RHEL host's `ip route`
 
 ## Install tailscale inside pfSense
 ...
