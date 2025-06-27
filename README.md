@@ -29,7 +29,7 @@ sudo dnf install cockpit cockpit-machines
 sudo usermod -aG libvirt,kvm $USER
 ```
 
-Physically connect the router/AP to the motherboard NIC
+Physically connect the router/AP (LAN port) to the motherboard NIC
 
 Reboot
 
@@ -92,9 +92,6 @@ Add a **bridge to LAN** network interface in which the source is br0-net
 Add host device (to passthrough the USB NIC)
 -> `lsusb` to double check the name for the USB NIC
 
-
-Then install
-
 Download the pfSense CE from `https://www.pfsense.org/download/`
 
 Extract the `gz` file 
@@ -109,6 +106,14 @@ sudo chown qemu:qemu /var/lib/libvirt/images/netgate-installer-amd64.iso
 ```
 
 During pfSense installation, make sure to use the USB NIC for the WAN and the virtual interface (br0) as the LAN
+
+Make sure to disable dhcp on the router/ap (AP mode) so that pfSense will handle DHCP 
+
+Go to `http://192.168.1.1` for the pfSense dashboard
+Default login is `admin:pfsense`
+Change password
+
+
 
 ## Install tailscale inside pfSense
 ...
