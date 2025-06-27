@@ -94,6 +94,14 @@ Go to localhost:9090
 
 Click Virtual Machines then Create and edit
 
+Remove the default virtio interface
+
+Add a virtual network interface in which the source is br0-net
+
+Add host device (to passthrough the USB NIC)
+-> `lsusb` to double check the name for the USB NIC
+
+
 Then install
 
 Download the pfSense CE from `https://www.pfsense.org/download/`
