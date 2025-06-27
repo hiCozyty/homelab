@@ -77,12 +77,29 @@ Restart to apply changes
 sudo systemctl restart NetworkManager
 ```
 
+Add `br0` to libvirt
+```
+cd ~/
+sudo virsh net-autostart br0-net
+#save
+sudo virsh net-define br0-libvirt.xml
+sudo virsh net-start br0-net
+sudo virsh net-autostart br0-net
+#Now libvirt knows about br0
+```
+
 ## Setup pfSense VM via cockpit
+
+Go to localhost:9090
+
+Click Virtual Machines then Create and edit
+
+Then install
 
 Download the pfSense CE from `https://www.pfsense.org/download/`
 
 
-## Install tailscal inside pfSense
+## Install tailscale inside pfSense
 ...
 
 ## Disable DHCP autoconnect for the usb-eth nic
