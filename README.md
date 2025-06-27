@@ -1,31 +1,47 @@
 # Homelab 
-## Introduction
-...
 
 ## Requirements
-- At least 2 PCs
+- 1 dedicated pc to run RHEL host
 - 1 USB to Ethernet NIC (2.5Gbps of higher)
-- Wireless router for local network devices (phones, PC2, safe devices, etc)
-- Fedora workstation installed on PC1
+- Wireless router for local network devices 
+
+## Setup requirements
+1. USB NIC = **WAN input** from ISP 
+  -> this goes **to pfSense VM only** (via passthrough)
+  
+2. Motherboard NIC = **LAN output** 
+   -> this connects to home router/AP
+
+3. pfSense runs inside a VM, **acts as the firewall/router**
+
+4. RHEL host **should not** access the internet directly via USB NIC
 
 ## Architecture Overview
 ...
 
-## Install Fedora Workstation on PC1
+## Setting up Virtualization in RHEL
 
-Download fedora workstation from `https://fedoraproject.org/workstation/` and install
-Update system
 ```
-sudo dnf update -y
+sudo dnf install qemu-kvm libvirt virt-install
 ```
-Install virt packages, start services
 ```
-sudo dnf install @virtualization
-sudo systemctl enable --now libvirtd
+sudo dnf install cockpit
+```
+setup cockpit
+```
+sudo firewall-cmd --add-port=9090/tcp
+sudo firewall-cmd --permanent --add-port=9090/tcp
+sudo systemctl enable cockpit.socket
+sudo systemctl start cockpit.socket
 ```
 
-## Install tailscale
-...
+get the name of the usb-nic
+
+```
+ip -br a | grep '\/' | awk '{print $1|'
+```
+
+for me: `enp5s0f4u2u2`
 
 ## Setup network bridge (br0)
 
@@ -55,13 +71,8 @@ Restart to apply changes
 sudo systemctl restart NetworkManager
 ```
 
-## Install cockpit 
-```
-sudo dnf install cockpit cockpit-machines -y
-sudo systemctl enable --now cockpit.socket
-```
+## Setup pfSense VM via cockpit
 
-## Install pfSense
 Download the pfSense CE from `https://www.pfsense.org/download/`
 
 
