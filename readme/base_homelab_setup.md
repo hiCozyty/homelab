@@ -15,8 +15,6 @@
 
 4. RHEL host **should not** access the internet directly via USB NIC
 
-## Architecture Overview
-...
 
 ## Setting up Virtualization in RHEL
 
