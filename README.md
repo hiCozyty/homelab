@@ -126,3 +126,6 @@ then turn VM off, to make sure that host does not have access to internet.
 Then turn VM on , to make sure that host does have access to internet.
 
 Enable auto start for pfSense VM
+
+
+Alternatively, for better segmentation, passthru BOTH the USB-nic as well as mobo-nic into the pfSense vm. Host will not have internet unless connected via wifi router (ap mode)
