@@ -60,10 +60,6 @@ sudo virsh net-destroy default
 sudo virsh net-autostart --disable default
 sudo virsh net-undefine default
 ```
-Restart to apply changes
-```
-sudo systemctl restart NetworkManager
-```
 
 ## Setup pfSense VM via cockpit
 
@@ -129,3 +125,8 @@ Enable auto start for pfSense VM
 
 
 Alternatively, for better segmentation, passthru BOTH the USB-nic as well as mobo-nic into the pfSense vm. Host will not have internet unless connected via wifi router (ap mode)
+
+Restart to apply changes
+```
+sudo systemctl restart NetworkManager
+```
