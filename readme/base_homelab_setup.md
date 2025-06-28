@@ -115,9 +115,9 @@ Establish Wifi connection from RHEL host to AP mode router (recommended)
 -> only connect if RHEL host needs access to the internet for occasional updates
 -> otherwise, keep it disconnected from internet
 
-then turn VM off, to make sure that host does not have access to internet. 
+Turn VM off, to make sure that host does not have access to internet. 
 
-Then turn VM on , to make sure that host does have access to internet.
+Turn VM on , to make sure that host does have access to internet.
 
 Enable auto start for pfSense VM
 
