@@ -73,7 +73,7 @@ OR
 
 -> Add a **direct attachment** for mobo NIC (because IOMMU groups are not cleanly separated and requires a kernel patch) and direct USB passthru to the vm
 
-see [**Performance considerations**](https://github.com/hiCozyty/homelab/blob/main/readme/base_homelab_setup.md#performance-considerations) sections to decide which option to choose
+See [**Performance considerations**](https://github.com/hiCozyty/homelab/blob/main/readme/base_homelab_setup.md#performance-considerations) section to decide which option to choose
 
 Download the pfSense CE from `https://www.pfsense.org/download/`
 
@@ -120,8 +120,6 @@ then turn VM off, to make sure that host does not have access to internet.
 Then turn VM on , to make sure that host does have access to internet.
 
 Enable auto start for pfSense VM
-
-Alternatively, for better segmentation, passthru BOTH the USB-nic as well as mobo-nic into the pfSense vm. Host will not have internet unless connected via wifi router (ap mode)
 
 Restart to apply changes
 ```
