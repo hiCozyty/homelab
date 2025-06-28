@@ -1,7 +1,7 @@
 # Homelab 
 
 ## Requirements
-- 1 dedicated PC to run RHEL host 
+- 1 dedicated PC to run RHEL host (wireless card recommended)
 - 1 USB to Ethernet NIC (2.5Gbps or higher)
 - Wireless router with AP mode support
   
@@ -117,7 +117,9 @@ EOF
 sudo systemctl restart NetworkManager
 ```
 
-Establish Wifi connection from RHEL host to AP mode router
+Establish Wifi connection from RHEL host to AP mode router (recommended)
+-> only connect if RHEL host needs access to the internet for occasional updates
+-> otherwise, keep it disconnected from internet
 
 then turn VM off, to make sure that host does not have access to internet. 
 
