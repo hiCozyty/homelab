@@ -152,4 +152,4 @@ Home internet speed: **500mbps**
 
 
 ## Power consumption benchmarks
-...
+TODO
