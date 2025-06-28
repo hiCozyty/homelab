@@ -134,6 +134,8 @@ sudo systemctl restart NetworkManager
 ## Performance considerations
 Reference device: x300 deskmini with 5600g ryzen cpu
 
+Home internet speed: 500mbps
+
 Host 
 cpu: 1.2v 2.6ghz 35w profile 
 memory: 1.2v 2600
