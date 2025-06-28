@@ -51,10 +51,7 @@ for me: `enp5s0f3u1`
 Check thruput with `lsusb -t`
 Choose usb port with 2500M or higher
 
-
-## Setup VM network
-
-Remove default virtual network
+## Remove default virtual network
 ```
 sudo virsh net-destroy default
 sudo virsh net-autostart --disable default
@@ -63,7 +60,7 @@ sudo virsh net-undefine default
 
 ## Setup pfSense VM via cockpit
 
-Go to localhost:9090
+Go to `localhost:9090`
 
 Enable admin access
 
@@ -71,11 +68,15 @@ Click Virtual Machines then Create and edit
 
 Remove the default virtio network interface
 
-Add a **direct attachment**  network type for both the USB-NIC and mobo NIC 
+Here you have two options
 
-This should create 2 macvtap network interfaces
+-> Add a **direct attachment**  network type for both the USB-NIC and mobo NIC 
 
-No passthrough is required
+OR
+
+-> Add a **direct attachment** for mobo NIC (because IOMMU groups are not cleanly separated and requires a kernel patch) and direct USB passthru to the vm
+
+see **Performance considerations** sections to decide which option to choose
 
 Download the pfSense CE from `https://www.pfsense.org/download/`
 
@@ -96,11 +97,11 @@ Make sure to enable AP mode on router and set DHCP to auto so that pfSense can h
 
 Go to `http://192.168.1.1` for the pfSense dashboard
 Default login is `admin:pfsense`
+
 Change password
 
-
 ## Disable DHCP autoconnect for the usb-eth nic
-ensure WAN traffic only go thru pfSense and not get routed to the host when pfSense VM crashes or turns off.
+Ensure WAN traffic only go thru pfSense and not get routed to the host when pfSense VM crashes or turns off.
 
 IMPORTANT: change `enp5s0f3u1` to the correct USB-Ethernet nic name
 
@@ -131,4 +132,16 @@ sudo systemctl restart NetworkManager
 ```
 
 ## Performance considerations
-...
+Reference device: x300 deskmini with 5600g ryzen cpu
+
+Host 
+cpu: 1.2v 2.6ghz 35w profile 
+memory: 1.2v 2600
+
+pfSense vm 
+cores allocated: 2
+memory: 8gb
+
+| macvtap | passthru (2 cores) |  passthru (4 cores) |  passthru (8 cores) |
+|---|---|---|
+| 450-500mbps | 40-80mbps |  | |
