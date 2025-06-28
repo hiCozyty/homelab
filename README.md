@@ -153,4 +153,4 @@ Home internet speed: **500mbps**
 | Method     | 2 Cores     | 4 Cores      | 8 Cores      |
 |:-----------|:-----------:|:------------:|-------------:|
 | macvtap    | 450–500 Mbps| 450-500 Mbps | 450-500 Mbps |
-| passthru   | 40–80 Mbps  | [TODO]       | [TODO]       |
+| passthru   | 27-50 Mbps  | [TODO]       | [TODO]       |
