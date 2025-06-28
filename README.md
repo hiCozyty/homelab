@@ -7,9 +7,9 @@
   
 ## Setup requirements
 1. USB NIC = **WAN input** from ISP 
-  -> this goes **to pfSense VM only** (via passthrough)
+  -> this goes **to pfSense VM**
   
-2. Motherboard NIC = **LAN output**, physically connects to home router
+2. Motherboard NIC = **LAN output** physically connects to home router
    -> this also goes **to pfSense VM** 
 
 3. pfSense runs inside a VM, **acts as the firewall/router**
