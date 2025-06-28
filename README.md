@@ -123,13 +123,12 @@ Then turn VM on , to make sure that host does have access to internet.
 
 Enable auto start for pfSense VM
 
-
-
-## Power and performance tuning
-...
 Alternatively, for better segmentation, passthru BOTH the USB-nic as well as mobo-nic into the pfSense vm. Host will not have internet unless connected via wifi router (ap mode)
 
 Restart to apply changes
 ```
 sudo systemctl restart NetworkManager
 ```
+
+## Power and performance tuning
+...
