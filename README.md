@@ -102,6 +102,7 @@ Change password
 
 ## Disable DHCP autoconnect for the usb-eth nic
 ensure WAN traffic only go thru pfSense and not get routed to the host when pfSense VM crashes or turns off.
+
 IMPORTANT: change `enp5s0f4u2u2` to the correct USB-Ethernet nic name
 
 ```
