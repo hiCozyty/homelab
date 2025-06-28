@@ -1,7 +1,7 @@
 # Homelab 
 
 ## Requirements
-- 1 dedicated PC to run RHEL host with a wifi card
+- 1 dedicated PC to run RHEL host 
 - 1 USB to Ethernet NIC (2.5Gbps or higher)
 - Wireless router with AP mode support
   
