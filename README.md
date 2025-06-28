@@ -107,7 +107,7 @@ sudo chown qemu:qemu /var/lib/libvirt/images/netgate-installer-amd64.iso
 
 During pfSense installation, make sure to use the USB NIC for the WAN and the virtual interface (br0) as the LAN
 
-Make sure to disable dhcp on the router/ap (AP mode) so that pfSense will handle DHCP 
+Make sure to disable dhcp on the router/ap (and enable AP mode) so that pfSense will handle DHCP 
 
 Go to `http://192.168.1.1` for the pfSense dashboard
 Default login is `admin:pfsense`
