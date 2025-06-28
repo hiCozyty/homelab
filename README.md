@@ -130,5 +130,5 @@ Restart to apply changes
 sudo systemctl restart NetworkManager
 ```
 
-## Power and performance tuning
+## Performance considerations
 ...
