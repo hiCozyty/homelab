@@ -73,7 +73,7 @@ OR
 
 -> Add a **direct attachment** for mobo NIC (because IOMMU groups are not cleanly separated and requires a kernel patch) and direct USB passthru to the vm
 
-see **Performance considerations** sections to decide which option to choose
+see [**Performance considerations**](https://github.com/hiCozyty/homelab/blob/main/readme/base_homelab_setup.md#performance-considerations) sections to decide which option to choose
 
 Download the pfSense CE from `https://www.pfsense.org/download/`
 
