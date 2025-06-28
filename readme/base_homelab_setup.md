@@ -152,3 +152,6 @@ Home internet speed: **500mbps**
 | macvtap    | 450–500 Mbps| 450-500 Mbps | 450-500 Mbps |
 | passthru   | 27-30 Mbps  | 30-32 Mbps   | 35-37 Mbps   |
 
+
+## Power consumption benchmarks
+...
