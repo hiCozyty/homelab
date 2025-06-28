@@ -137,11 +137,16 @@ Reference device: x300 deskmini with 5600g ryzen cpu
 Home internet speed: 500mbps
 
 Host 
+
 cpu: 1.2v 2.6ghz 35w profile 
+
 memory: 1.2v 2600
 
+
 pfSense vm 
+
 cores allocated: 2
+
 memory: 8gb
 
 | Method     | 2 Cores     | 4 Cores      | 8 Cores      |
