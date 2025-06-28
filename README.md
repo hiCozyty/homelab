@@ -47,7 +47,10 @@ get the name of the usb-nic
 ip -br a | grep '\/' | awk '{print $1|'
 ```
 
-for me: `enp5s0f4u2u2`
+for me: `enp5s0f3u1`
+Check thruput with `lsusb -t`
+Choose usb port with 2500M or higher
+
 
 ## Setup VM network
 
@@ -103,12 +106,12 @@ Change password
 ## Disable DHCP autoconnect for the usb-eth nic
 ensure WAN traffic only go thru pfSense and not get routed to the host when pfSense VM crashes or turns off.
 
-IMPORTANT: change `enp5s0f4u2u2` to the correct USB-Ethernet nic name
+IMPORTANT: change `enp5s0f3u1` to the correct USB-Ethernet nic name
 
 ```
-sudo tee /etc/NetworkManager/conf.d/10-unmanaged-enp5s0f4u2u2.conf > /dev/null <<EOF
+sudo tee /etc/NetworkManager/conf.d/10-unmanaged-enp5s0f3u1.conf > /dev/null <<EOF
 [keyfile]
-unmanaged-devices=interface-name:enp5s0f4u2u2
+unmanaged-devices=interface-name:enp5s0f3u1
 EOF
 
 sudo systemctl restart NetworkManager
