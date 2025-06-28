@@ -3,14 +3,14 @@
 ## Requirements
 - 1 dedicated PC to run RHEL host
 - 1 USB to Ethernet NIC (2.5Gbps or higher)
-- Wireless router for local network devices 
-
+- Wireless router with AP mode support
+  
 ## Setup requirements
 1. USB NIC = **WAN input** from ISP 
   -> this goes **to pfSense VM only** (via passthrough)
   
-2. Motherboard NIC = **LAN output** 
-   -> this connects to home router/AP
+2. Motherboard NIC = **LAN output**, physically connects to home router
+   -> this also goes **to pfSense VM** 
 
 3. pfSense runs inside a VM, **acts as the firewall/router**
 
@@ -49,28 +49,13 @@ ip -br a | grep '\/' | awk '{print $1|'
 
 for me: `enp5s0f4u2u2`
 
-## Setup network bridge (br0)
+## Setup VM network
 
 Remove default virtual network
 ```
 sudo virsh net-destroy default
 sudo virsh net-autostart --disable default
 sudo virsh net-undefine default
-```
-Create the new bridge connection and configure DHCP
-```
-sudo nmcli connection add type bridge autoconnect yes con-name br0 ifname br0
-sudo nmcli connection modify br0 ipv4.method auto
-```
-Add the regular NIC (from the motherboard) as a slave to the bridge 
-IMPORTANT: change enp3s0 to the correct NIC name
-```
-sudo nmcli connection add type ethernet slave-type bridge con-name br0-port1 ifname enp3s0 master br0
-```
-Bring up the Bridge and NIC
-```
-sudo nmcli connection up br0
-sudo nmcli connection up br0-port1
 ```
 Restart to apply changes
 ```
@@ -85,12 +70,13 @@ Enable admin access
 
 Click Virtual Machines then Create and edit
 
-Remove the default virtio interface
+Remove the default virtio network interface
 
-Add a **bridge to LAN** network interface in which the source is br0-net
+Add a **direct attachment**  network type for both the USB-NIC and mobo NIC 
 
-Add host device (to passthrough the USB NIC)
--> `lsusb` to double check the name for the USB NIC
+This should create 2 macvtap network interfaces
+
+No passthrough is required
 
 Download the pfSense CE from `https://www.pfsense.org/download/`
 
@@ -105,40 +91,23 @@ sudo chown qemu:qemu /var/lib/libvirt/images/netgate-installer-amd64.iso
 
 ```
 
-During pfSense installation, make sure to use the USB NIC for the WAN and the virtual interface (br0) as the LAN
+During pfSense installation, make sure to use the USB NIC for the WAN mobo NIC for LAN
 
-Make sure to disable dhcp on the router/ap (and enable AP mode) so that pfSense will handle DHCP 
+Make sure to enable AP mode on router and set DHCP to auto so that pfSense can handle DHCP 
 
 Go to `http://192.168.1.1` for the pfSense dashboard
 Default login is `admin:pfsense`
 Change password
 
 
-## Troubleshooting
-
-Try to pull up shell from pfsense and type `ifconfig | less` to see the ip address of the vtnet interface. 
-Then compare with RHEL host's `ip route`
-flush
-```
-sudo nmcli connection modify br0 ipv4.addresses ""
-sudo nmcli connection modify br0 ipv4.gateway ""
-sudo nmcli connection modify br0 ipv4.method auto
-sudo nmcli connection down br0
-sudo nmcli connection up br0
-```
-then restart pfSense vm
-
-## Install tailscale inside pfSense
-...
-
 ## Disable DHCP autoconnect for the usb-eth nic
 ensure WAN traffic only go thru pfSense and not get routed to the host when pfSense VM crashes or turns off.
-IMPORTANT: change `enp5s0f4u1` to the correct USB-Ethernet nic name
+IMPORTANT: change `enp5s0f4u2u2` to the correct USB-Ethernet nic name
 
 ```
-sudo tee /etc/NetworkManager/conf.d/10-unmanaged-enp5s0f4u1.conf > /dev/null <<EOF
+sudo tee /etc/NetworkManager/conf.d/10-unmanaged-enp5s0f4u2u2.conf > /dev/null <<EOF
 [keyfile]
-unmanaged-devices=interface-name:enp5s0f4u1
+unmanaged-devices=interface-name:enp5s0f4u2u2
 EOF
 
 sudo systemctl restart NetworkManager
