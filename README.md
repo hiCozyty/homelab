@@ -142,6 +142,7 @@ pfSense vm
 cores allocated: 2
 memory: 8gb
 
-| macvtap | passthru (2 cores) |  passthru (4 cores) |  passthru (8 cores) |
-|---|---|---|
-| 450-500mbps | 40-80mbps |  | |
+| Method     | 2 Cores     | 4 Cores  | 8 Cores  |
+|:-----------|:-----------:|:--------:|---------:|
+| macvtap    | 450–500 Mbps| –        | –        |
+| passthru   | 40–80 Mbps  | [TODO]   | [TODO]   |
