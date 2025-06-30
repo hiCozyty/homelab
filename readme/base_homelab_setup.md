@@ -115,9 +115,7 @@ EOF
 sudo systemctl restart NetworkManager
 ```
 
-Establish Wifi connection from RHEL host to AP mode router (recommended)
--> only connect if RHEL host needs access to the internet for occasional updates
--> otherwise, keep it disconnected from internet
+Establish Wifi connection from RHEL host to AP mode router 
 
 Turn VM off, to make sure that host does not have access to internet. 
 
@@ -128,6 +126,26 @@ Enable auto start for pfSense VM
 Restart to apply changes
 ```
 sudo systemctl restart NetworkManager
+```
+
+## Install `dnf-automatic` and `kernel live patching`
+```
+sudo subscription-manager register  # if not already registered
+sudo subscription-manager attach --auto
+sudo subscription-manager repos --enable=rhel-10-for-x86_64-live-patching-rpms
+sudo dnf install kpatch-dnf kpatch
+sudo dnf install "kpatch-patch = $(uname -r)"
+sudo systemctl enable --now kpatch.service
+sudo kpatch list #verify
+
+sudo dnf install dnf-automatic
+sudo systemctl enable --now dnf-automatic.timer
+```
+
+in `/etc/dnf/automatic.conf`,
+```
+download_updates = yes
+apply_updates = yes
 ```
 
 ## Performance considerations
