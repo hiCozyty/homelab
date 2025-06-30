@@ -20,4 +20,4 @@
 
 [Basic hardening](https://github.com/hiCozyty/homelab/blob/main/readme/basic_hardening.md)
 
-[VLAN setup](https://github.com/hiCozyty/homelab/blob/main/readme/dmz_setup.md)
+[VLAN setup](https://github.com/hiCozyty/homelab/blob/main/readme/vlan_setup.md)
