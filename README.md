@@ -1,7 +1,8 @@
 # Homelab 
 
 ## Architecture Overview
-![architecture drawio](https://github.com/user-attachments/assets/e3d6e211-60dd-4693-a8bf-74a6478297c6)
+![architecture drawio(1)](https://github.com/user-attachments/assets/1e82d3b5-1c12-4fe3-a146-ec22168515fc)
+()
 
 ## LAN/VLAN segmentation table
 | Name     | ID  | Subnet       | Purpose    | Example VMs |
