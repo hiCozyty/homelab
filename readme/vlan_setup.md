@@ -3,3 +3,6 @@
 2. Create Vlans based on the [segmentation table](https://github.com/hiCozyty/homelab/tree/main?tab=readme-ov-file#lanvlan-segmentation-table)
 3. Use `LAN` for the parent interface
 
+## Create Mgmt VM on VLAN40
+1. Download [openBSD iso](https://www.openbsd.org/faq/faq4.html#Download)
+2. 
