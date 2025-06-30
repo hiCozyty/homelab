@@ -1,11 +1,11 @@
 
-## Requirements
+# Requirements
 - 1 dedicated PC to run RHEL host with ethernet port (and wireless card recommended)
 - 1 USB to Ethernet NIC (2.5Gbps or higher)
 - Wireless router with AP mode support (consumer grade wifi works but you lose out of mesh networking when AP mode is enabled)
     - if you want to use mesh, consider getting an AP that supports mesh like unifi or tp-link omada
   
-## Setup requirements
+# Setup requirements
 1. USB NIC = **WAN input** from ISP 
   -> this goes **to pfSense VM**
   
@@ -16,7 +16,10 @@
 
 4. RHEL host **should not** access the internet directly via USB NIC
 
+# Automated script
+TODO
 
+# Manual setup 
 ## Setting up Virtualization in RHEL
 
 ```
