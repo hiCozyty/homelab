@@ -18,11 +18,8 @@
 
 
 ## Installation
-[RHEL Setup]()
-
-[Base setup](https://github.com/hiCozyty/homelab/blob/main/readme/base_homelab_setup.md)
-
-
-[Basic hardening](https://github.com/hiCozyty/homelab/blob/main/readme/basic_hardening.md)
+[RHEL host and pfSense VM setup](./readme/rhel_and_pfsense_setup.md)
 
 [VLAN setup](https://github.com/hiCozyty/homelab/blob/main/readme/vlan_setup.md)
+
+[Basic hardening](https://github.com/hiCozyty/homelab/blob/main/readme/basic_hardening.md)
