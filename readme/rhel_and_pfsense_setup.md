@@ -181,7 +181,7 @@ sudo systemctl restart NetworkManager
 
 4. Reboot.
 
-## Set macvtap mode to `Private`
+## Set macvtap mode to `Passthrough`
 
 1. Edit the VM XML file.
 
@@ -189,7 +189,7 @@ sudo systemctl restart NetworkManager
 sudo virsh edit pfSense # replace pfSense with your VM name
 ```
 
-2. Find the `<Interface>` section and set mode to `mode='private'`.
+2. Find the `<Interface>` section and set mode to `mode='passthrough'`.
 
 ```
 <interface type='direct'>
