@@ -4,7 +4,7 @@
 3. USB to Ethernet NIC (Network Interface Controller).
 4. Wireless card.
 5. Wireless router with AP (Access Point) capability.
-  -If Wi-Fi Mesh is needed, consider getting an AP that supports mesh like Unifi or TP-Link Omada.
+  a) If Wi-Fi Mesh is needed, consider getting an AP that supports mesh like Unifi or TP-Link Omada.
 
 # Setup Requirements
 1. USB-NIC is the **WAN input** from ISP.
