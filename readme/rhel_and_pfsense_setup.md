@@ -189,19 +189,19 @@ sudo systemctl restart NetworkManager
 sudo virsh edit pfSense # replace pfSense with your VM name
 ```
 
-2. Find the `<Interface>` section and set mode to `mode='passthrough'`.
+2. Find the `<Interface>` section and set mode to `mode='passthrough'` for the WAN and LAN.
 
 ```
 <interface type='direct'>
   <mac address='12:34:56:78:90:12'/>
-  <source dev='enp3s0' mode='bridge'/>
+  <source dev='enp3s0' mode='bridge'/> #change to mode='passthrough'
   <model type='virtio'/>
   <address type='pci' domain='0x0000' bus='0x00' slot='0x03' function='0x0'/>
 </interface>
 
 <interface type='direct'>
   <mac address='12:34:56:78:90:13'/>
-  <source dev='enp5s0f3u1' mode='bridge'/>
+  <source dev='enp5s0f3u1' mode='bridge'/> #change to mode='passthrough'
   <model type='virtio'/>
   <address type='pci' domain='0x0000' bus='0x00' slot='0x07' function='0x0'/>
 </interface>
