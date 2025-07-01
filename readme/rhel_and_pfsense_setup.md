@@ -129,9 +129,9 @@ sudo systemctl edit --full dnf-automatic.timer
 
     b) Add a **direct attachment** network type for the motherboard NIC but direct USB passthru for the USB-NIC.
 
-  *Note: Due to how most PCs **do not** have IOMMU groups that are not cleanly separated for the motherboard NIC, it requires a **kernel patch** for direct hardware passthru.*
+      *Note: Due to how most PCs **do not** have IOMMU groups that are not cleanly separated for the motherboard NIC, it requires a **kernel patch** for direct hardware passthru.*
 
-  *See [**Performance considerations**](./readme/rhel_and_pfsense_setup.md#performance-considerations) section to decide which option to choose.*
+      *See [**Performance considerations**](./readme/rhel_and_pfsense_setup.md#performance-considerations) section to decide which option to choose.*
 
 6. Download the [pfSense CE (Community Edition)](https://www.pfsense.org/download/).
 
@@ -157,7 +157,7 @@ sudo chown qemu:qemu netgate-installer-amd64.iso
 
 1. Ensure WAN traffic only goes thru pfSense and not get routed to the host when pfSense VM crashes or turns off.
 
-*Note: change `enp5s0f3u1` to the correct USB-Ethernet nic name.*
+    *Note: change `enp5s0f3u1` to the correct USB-Ethernet nic name.*
 
 
 ```bash
@@ -205,11 +205,11 @@ sudo virsh edit pfSense # replace pfSense with your VM name
 </interface>
 ```
 
-*Note: this provides the following:*
-1. Guest to Guest isolation over the same NIC.
-2. RHEL host cannot communicate with the VMs via that interface.
-3. All traffic must go through your firewall/router (pfSense).
-4. VMs can talk to the outside world (e.g. internet) via pfSense.
+    *Note: this provides the following:*
+    1. Guest to Guest isolation over the same NIC.
+    2. RHEL host cannot communicate with the VMs via that interface.
+    3. All traffic must go through your firewall/router (pfSense).
+    4. VMs can talk to the outside world (e.g. internet) via pfSense.
 
 ## Performance considerations
 
