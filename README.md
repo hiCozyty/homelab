@@ -8,7 +8,7 @@
 ## LAN/VLAN segmentation table
 | Name     | ID    | Subnet       | Purpose    | Example VMs |
 |:---------|:-----:|:------------:|-----------:|------------:|
-| LAN      | N/A   | 192.168.1.0/24  | Home Wi-Fi, AP/Router | N/A |
+| LAN      |    | 192.168.1.0/24  | Home Wi-Fi, AP/Router |  |
 | Attacker | 10    | 192.168.20.0/24  | Offensive VMs | Kali, parrot |
 | Vuln     | 20    | 192.168.30.0/24  | Vuln VMs | Windows, Linux, DVWA, metasploitable |
 | Mgmt     | 30    | 192.168.40.0/24  | Admin access, UI Panels | Admin PC, pfSense Gui, Omada Controller, Logging VM , jumpbox VM |
