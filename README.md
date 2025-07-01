@@ -11,7 +11,7 @@
 | LAN      | 10  | 192.168.1.0/24  | Home Wi-Fi, AP/Router | N/A |
 | Attacker | 20  | 192.168.20.0/24  | Offensive VMs | Kali, parrot |
 | Vuln     | 30  | 192.168.30.0/24  | Vuln VMs | Windows, Linux, DVWA, metasploitable |
-| Mgmt     | 40  | 192.168.40.0/24  | Admin access, UI Panels | Admin PC, pfSense Gui, Omada Controller, Logging VM |
+| Mgmt     | 40  | 192.168.40.0/24  | Admin access, UI Panels | Admin PC, pfSense Gui, Omada Controller, Logging VM , jumpbox VM |
 | Blog     | 100 | 192.168.100.0/24  | Self-hosted web service | Ghost Blog VM |
 | Backup    | 200 | 192.168.200.0/24  |	Backup servers for all VM snapshots/backups | Backup VMs |
 
