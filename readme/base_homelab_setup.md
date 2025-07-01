@@ -150,13 +150,10 @@ emit_via = stdio
 [base]
 # debuglevel = 1
 EOF
-
 ```
-
-in `/etc/dnf/automatic.conf`,
+Customize update schedule
 ```
-download_updates = yes
-apply_updates = yes
+sudo systemctl edit --full dnf-automatic.timer
 ```
 
 ## Performance considerations
