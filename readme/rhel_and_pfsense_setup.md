@@ -191,7 +191,7 @@ sudo virsh edit pfSense # replace pfSense with your VM name
 
 2. Find the `<Interface>` section and set mode to `mode='private'`.
 
-```bash
+```
 <interface type='direct'>
   <mac address='12:34:56:78:90:12'/>
   <source dev='enp3s0' mode='bridge'/>
@@ -207,7 +207,7 @@ sudo virsh edit pfSense # replace pfSense with your VM name
 </interface>
 ```
 
-    *Note: this provides the following:*
+  *Note: this provides the following:*
     **1. Guest to Guest isolation over the same NIC.**
     **2. RHEL host cannot communicate with the VMs via that interface.**
     **3. All traffic must go through your firewall/router (pfSense).**
