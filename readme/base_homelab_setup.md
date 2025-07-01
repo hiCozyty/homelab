@@ -135,6 +135,24 @@ sudo dnf install kpatch-dnf
 sudo dnf kpatch auto
 ```
 
+```
+sudo dnf install dnf-automatic
+sudo systemctl enable --now dnf-automatic.timer
+
+sudo tee /etc/dnf/automatic.conf > /dev/null << EOF
+[commands]
+apply_updates = yes
+
+[emitters]
+# send email notifications to root (optional)
+emit_via = stdio
+
+[base]
+# debuglevel = 1
+EOF
+
+```
+
 in `/etc/dnf/automatic.conf`,
 ```
 download_updates = yes
