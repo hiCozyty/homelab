@@ -20,7 +20,7 @@
 ## Installation
 [RHEL host and pfSense VM setup](./readme/rhel_and_pfsense_setup.md)
 
-  -   [macvtap Interface Mode Security PoC](./readme/poc/macvtap_poc.md)
+  -   [Evaluating macvtap Modes for Network Isolation and Host Security](./readme/poc/macvtap_host_eval.md)
 
 [VLAN setup](https://github.com/hiCozyty/homelab/blob/main/readme/vlan_setup.md)
 
