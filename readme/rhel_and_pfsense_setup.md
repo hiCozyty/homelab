@@ -208,6 +208,7 @@ sudo virsh edit pfSense # replace pfSense with your VM name
 ```
 
   *Note: this provides the following:*
+
   **1. Guest to Guest isolation over the same NIC.**
 
   **2. RHEL host cannot communicate with the VMs via that interface.**
