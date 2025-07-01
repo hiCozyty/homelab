@@ -3,6 +3,7 @@
 2. Create Vlans based on the [segmentation table](https://github.com/hiCozyty/homelab/tree/main?tab=readme-ov-file#lanvlan-segmentation-table)
 3. Use `LAN` for the parent interface
 
-## Configure a jumpbox VM on VLAN40
+## Configure a single purpose jumpbox VM on VLAN40
 1. Download [openBSD iso](https://www.openbsd.org/faq/faq4.html#Download)
-2. 
+2. Create a new VM using 1vCPU, 1gb ram, and 1gb storage
+   
