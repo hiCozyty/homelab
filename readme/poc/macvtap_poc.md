@@ -1,4 +1,4 @@
-# mode='passthrough' is the way
+# `mode='passthrough'` is the way
 ![image](https://access.redhat.com/webassets/avalon/d/Red_Hat_Enterprise_Linux-6-Virtualization_Administration_Guide-en-US/images/cd8ec3282ce056149aee12728b14312b/macvtap_modes-Private.png)
 [*source*](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/6/html/virtualization_administration_guide/sect-attch-nic-physdev)
 
