@@ -1,4 +1,4 @@
-# Homelab 
+# Homelab
 
 ## Architecture Overview
 ![image](https://github.com/user-attachments/assets/05f2538a-a220-495a-b0a7-f8c8ab60e6c4)
@@ -18,6 +18,8 @@
 
 
 ## Installation
+[RHEL Setup]()
+
 [Base setup](https://github.com/hiCozyty/homelab/blob/main/readme/base_homelab_setup.md)
 
 
