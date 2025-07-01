@@ -4,6 +4,6 @@ For the purpose of comparing different macvtap modes, we will comment out the un
 
 ## macvtap mode for WAN interface comparison table
 
-| | vepa | bridge | private | passthru |
-| --- | --- | --- | --- | --- | --- |
+|    | vepa | bridge | private | passthru |
+|:--|:-----|:-------|:--------|:-------- |
 | Internet Connection | ✅ | ✅ | ✅ | X |
