@@ -130,15 +130,9 @@ sudo systemctl restart NetworkManager
 
 ## Install `dnf-automatic` and `kernel live patching`
 ```
-sudo subscription-manager register  # if not already registered
-sudo subscription-manager repos --enable=rhel-10-for-x86_64-live-patching-rpms
-sudo dnf install kpatch-dnf kpatch
-sudo dnf install "kpatch-patch = $(uname -r)"
-sudo systemctl enable --now kpatch.service
-sudo kpatch list #verify
-
-sudo dnf install dnf-automatic
-sudo systemctl enable --now dnf-automatic.timer
+sudo dnf install kpatch
+sudo dnf install kpatch-dnf
+sudo dnf kpatch auto
 ```
 
 in `/etc/dnf/automatic.conf`,
