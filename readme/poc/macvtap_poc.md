@@ -6,4 +6,4 @@ For the purpose of comparing different macvtap modes, we will comment out the un
 
 |    | vepa | bridge | private | passthru |
 |:--|:-----|:-------|:--------|:-------- |
-| Internet Connection | ✅ | ✅ | ✅ | X |
+| Internet Connection | ✅ | ✅ | ✅ | ❌ |
