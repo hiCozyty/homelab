@@ -6,17 +6,17 @@
 4. Wireless card.
 5. Wireless router with AP (Access Point) capability.
 
-  a) If Wi-Fi Mesh is needed, consider getting an AP that supports mesh like Unifi or TP-Link Omada.
+    ->If Wi-Fi Mesh is needed, consider getting an AP that supports mesh like Unifi or TP-Link Omada.
 
 # Setup Requirements
 
 1. USB-NIC is the **WAN input** from ISP.
 
-  -> this is passed thru to the **pfSense VM (Virtual Machine)**.
+    -> this is passed thru to the **pfSense VM (Virtual Machine)**.
 
 2. Motherboard NIC is the **LAN input**.
 
-  -> this is passed thru to the **pfSense VM**.
+    -> this is passed thru to the **pfSense VM**.
 
 3. pfSense runs inside a VM and **acts as the firewall/router** for the RHEL host.
 
@@ -125,9 +125,9 @@ sudo systemctl edit --full dnf-automatic.timer
 
 5. Here, you have two options.
 
-  a) Add a **direct attachement** network type for both the USB-NIC and motherboard NIC.
+    a) Add a **direct attachement** network type for both the USB-NIC and motherboard NIC.
 
-  b) Add a **direct attachment** network type for the motherboard NIC but direct USB passthru for the USB-NIC.
+    b) Add a **direct attachment** network type for the motherboard NIC but direct USB passthru for the USB-NIC.
 
   *Note: Due to how most PCs **do not** have IOMMU groups that are not cleanly separated for the motherboard NIC, it requires a **kernel patch** for direct hardware passthru.*
 
@@ -171,9 +171,9 @@ sudo systemctl restart NetworkManager
 
 2. Establish Wifi connection from RHEL host to AP mode router.
 
-  a) Turn VM off, to make sure that host does not have access to internet.
+    a) Turn VM off, to make sure that host does not have access to internet.
 
-  b) Turn VM on , to make sure that host does have access to internet.
+    b) Turn VM on , to make sure that host does have access to internet.
 
 3. Enable auto start for pfSense VM.
 
