@@ -191,7 +191,7 @@ sudo virsh edit pfSense # replace pfSense with your VM name
 
 2. Find the `<Interface>` section and set mode to `mode='passthrough'` for the WAN and LAN.
 
-```
+```bash
 <interface type='direct'>
   <mac address='12:34:56:78:90:12'/>
   <source dev='enp3s0' mode='bridge'/> #change to mode='passthrough'
