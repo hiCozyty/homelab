@@ -71,7 +71,9 @@ sudo virsh net-undefine default
 ip -br a | grep '\/' | awk '{print $1|'
 ```
   -> For example, mine is `enp5s0f3u1`.
+
   -> Check thruput with `lsbusb -t`.
+
   -> Make sure USB port with speeds matching the USB-NIC specs or higher.
 
 ## Install `dnf-automatic` and `kernel live patching`
