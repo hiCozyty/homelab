@@ -8,4 +8,5 @@
 2. Create a new VM using 1vCPU, 1gb ram, and 1gb storage
    
 References:
-https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/implementing-secure-administrative-hosts
+[Securing Jumpboxes]
+(https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/implementing-secure-administrative-hosts)
