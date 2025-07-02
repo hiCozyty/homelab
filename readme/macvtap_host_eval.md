@@ -11,4 +11,4 @@
 
 |    | vepa | bridge | private | passthrough |
 |:--|:-----|:-------|:--------|:-------- |
-| Internet Connection | ✅ | ✅ | ✅ | ❌ |
+| Host Internet Connection | ✅ | ✅ | ✅ | ❌ |
