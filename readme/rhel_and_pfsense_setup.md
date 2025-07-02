@@ -96,10 +96,6 @@ sudo tee /etc/dnf/automatic.conf > /dev/null << EOF
 [commands]
 apply_updates = yes
 
-[emitters]
-# send email notifications to root (optional)
-emit_via = stdio
-
 [base]
 # debuglevel = 1
 EOF
