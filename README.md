@@ -18,6 +18,9 @@
 
 
 ## Installation
+
+[Bitwarden Server Setup on Trusted LAN](./readme/trusted_bitwarden_setup.md)
+
 [RHEL Host and pfSense VM Setup](./readme/rhel_and_pfsense_setup.md)
 
   -   [Evaluating macvtap Modes for Network Isolation and Host Security](./readme/macvtap_host_eval.md)
