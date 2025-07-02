@@ -139,11 +139,14 @@ sudo systemctl edit --full dnf-automatic.timer
 gunzip netgate-installer-amd64.iso.gz
 ```
 
-8. Fix permissions (if needed).
+8. Fix permissions
 
 ```bash
+sudo mv netgate-installer-amd64.iso /var/lib/libvirt/images
 sudo chown qemu:qemu netgate-installer-amd64.iso
 ```
+
+
 
 9. During pfSense installation, make sure to use the USB-NIC for the WAN and the motherboard NIC for the LAN.
 
