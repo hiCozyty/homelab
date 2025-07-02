@@ -57,7 +57,7 @@ sudo systemctl enable cockpit.socket
 sudo systemctl start cockpit.socket
 ```
 
-2. Remove default virtual network.
+2. Remove default virtual network (if needed).
 
 ```bash
 sudo virsh net-destroy default
