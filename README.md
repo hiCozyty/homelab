@@ -18,10 +18,10 @@
 
 
 ## Installation
-[RHEL host and pfSense VM setup](./readme/rhel_and_pfsense_setup.md)
+[RHEL Host and pfSense VM Setup](./readme/rhel_and_pfsense_setup.md)
 
   -   [Evaluating macvtap Modes for Network Isolation and Host Security](./readme/poc/macvtap_host_eval.md)
 
 [VLAN setup](https://github.com/hiCozyty/homelab/blob/main/readme/vlan_setup.md)
 
-[Basic hardening](https://github.com/hiCozyty/homelab/blob/main/readme/basic_hardening.md)
+[Jumpbox setup](./readme/jumpbox_setup.md)
