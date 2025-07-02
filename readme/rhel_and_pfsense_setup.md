@@ -146,13 +146,15 @@ sudo mv netgate-installer-amd64.iso /var/lib/libvirt/images
 sudo chown qemu:qemu netgate-installer-amd64.iso
 ```
 
-
-
 9. During pfSense installation, make sure to use the USB-NIC for the WAN and the motherboard NIC for the LAN.
 
-10. At this point, make sure that the router has AP mode on.
+10. Also make sure to select `System` for connection type.
+![Screenshot 2025-07-03 at 00-55-34 Virtual machines - homelab@localhost](https://github.com/user-attachments/assets/6d6344f4-a8c1-4223-94bc-c1d14d748261)
 
-11. Go to the pfSense dashboard at `http://192.168.1.1`. Default login is `admin:pfsense`. Then change the password.
+
+11. At this point, make sure that the router has AP mode on.
+
+12. Go to the pfSense dashboard at `http://192.168.1.1`. Default login is `admin:pfsense`. Then change the password.
 
 ## Disable DHCP autoconnect for the USB-NIC
 
