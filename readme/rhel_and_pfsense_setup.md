@@ -10,11 +10,11 @@
 
 # Setup Requirements
 
-1. USB-NIC is the **WAN input** from ISP.
+1. USB-NIC is the **WAN (Wide Area Network) input** from ISP.
 
     -> this is passed thru to the **pfSense VM (Virtual Machine)**.
 
-2. Motherboard NIC is the **LAN input**.
+2. Motherboard NIC is the **LAN (Local Area Network) input**.
 
     -> this is passed thru to the **pfSense VM**.
 
@@ -68,7 +68,7 @@ sudo virsh net-undefine default
 3. Get the name of the USB-NIC.
 
 ```bash
-ip -br a | grep '\/' | awk '{print $1|'
+ip -br a | grep '\/' | awk '{print $1}'
 ```
   -> For example, mine is `enp5s0f3u1`.
 
