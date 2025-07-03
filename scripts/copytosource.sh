@@ -1,4 +1,3 @@
-```
 #!/usr/bin/zsh
 
 # Check if already logged in
@@ -87,4 +86,3 @@ if [[ "$AUTHENTICATION_STATUS" == "unauthenticated" || "$AUTHENTICATION_STATUS" 
 else
     get_credentials
 fi
-```
