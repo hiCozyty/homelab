@@ -19,7 +19,7 @@
 
 ## Installation
 
-[Bitwarden Server Setup on Trusted LAN](./readme/trusted_bitwarden_setup.md)
+[Vaultwarden Server Setup on Trusted LAN](./readme/trusted_vaultwarden_setup.md)
 
 [RHEL Host and pfSense VM Setup](./readme/rhel_and_pfsense_setup.md)
 

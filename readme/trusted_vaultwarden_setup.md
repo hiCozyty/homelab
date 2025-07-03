@@ -4,7 +4,7 @@ This Vaultwarden server is exclusively for homelab VM credentials management and
 
 ## Hardware Requirements
 
-1. Fedora Host with at least 1GB of RAM and 2 CPU cores.
+1. Fedora Daily Driver sitting in trusted LAN with at least 1GB of RAM and 2 CPU cores.
 2. Yubikey
 
 ## Install Yubikey Manager on Fedora and Set a Static Password for Long Press
