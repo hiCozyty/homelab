@@ -2,10 +2,15 @@
 
 Self hosted Vaultwarden server used exclusively for homelab VM credentials management, bound to `localhost` only.
 
-## Hardware Requirements
+## Hardware and Software Requirements
 
 1. Fedora Daily Driver sitting in trusted LAN with at least 1GB of RAM and 2 CPU cores.
 2. Yubikey
+3. Tiling window manager (hyprland)
+
+
+## Demonstration
+
 
 ## Install Yubikey Manager on Fedora and Set a Static Password for Long Press
 
@@ -229,6 +234,6 @@ https://docs.docker.com/engine/install/fedora/
 
 https://github.com/rsmsctr/vaultwardenGuide
 
-https://Vaultwarden.com/help/install-on-premise-linux/
+https://bitwarden.com/help/install-on-premise-linux/
 
-https://Vaultwarden.com/blog/how-to-install-and-use-the-Vaultwarden-command-line-tool/
+https://bitwarden.com/blog/how-to-install-and-use-the-bitwarden-command-line-tool/
