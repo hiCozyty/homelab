@@ -1,4 +1,4 @@
-```bash
+```
 #!/usr/bin/zsh
 
 # Check if already logged in
