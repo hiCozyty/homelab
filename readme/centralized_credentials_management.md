@@ -4,15 +4,15 @@ Self hosted Vaultwarden server is used exclusively for homelab VM credentials ma
 
 # Demonstrations
 
-## Getting credentials for RHEL host ssh session
+## Getting credentials for RHEL host in an ssh session
 
 ...
 
-## Getting credentials for VM10001 (kali) ssh session
+## Getting credentials for VM10001 (kali) in an ssh session
 
 ...
 
-## Getting credentials for VM20001 (windows) ssh session
+## Getting credentials for VM20001 (windows) in an ssh session
 
 ...
 

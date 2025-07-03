@@ -19,12 +19,12 @@
 
 ## Installation
 
-[Centralized Credentials Management](./readme/centralized_credentials_management.md)
+1. [Centralized Credentials Management](./readme/centralized_credentials_management.md)
 
-[RHEL Host and pfSense VM Setup](./readme/rhel_and_pfsense_setup.md)
+2. [RHEL Host and pfSense VM Setup](./readme/rhel_and_pfsense_setup.md)
 
   -   [Evaluating macvtap Modes for Network Isolation and Host Security](./readme/macvtap_host_eval.md)
 
-[VLAN setup](https://github.com/hiCozyty/homelab/blob/main/readme/vlan_setup.md)
+3. [VLAN setup](https://github.com/hiCozyty/homelab/blob/main/readme/vlan_setup.md)
 
-[Jumpbox setup](./readme/jumpbox_setup.md)
+4. [Jumpbox setup](./readme/jumpbox_setup.md)
