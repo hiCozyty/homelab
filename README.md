@@ -1,7 +1,8 @@
 # Homelab
 
 ## Architecture Overview
-![image](https://github.com/user-attachments/assets/05f2538a-a220-495a-b0a7-f8c8ab60e6c4)
+![infra](https://github.com/user-attachments/assets/2cbfe7cf-a2ca-4356-bf9e-c5b5c327cc1d)
+
 
 
 
