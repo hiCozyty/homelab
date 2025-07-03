@@ -88,6 +88,17 @@ docker compose down
 
 `http://localhost:8080`
 
+6. Create a new account and set masterpassword to the yubikey challenge response.
+```bash
+ykpersonalize -2 -ochal-resp -ochal-hmac -o-chal-btn-trig -y #to disable touch
+
+ykman otp calculate 2 $(echo -n "test123!@#" | xxd -p) #should output a deterministic value
+
+# set a part of this output as the email and the rest as the master password
+# for example, response output is 123456..... set email as 1234@mail.com and the rest as the password
+#
+```
+
 ## Install Bitwarden cli
 
 1. Download the zipped file from the [Bitwarden download page](https://bitwarden.com/download/?app=cli&platform=linux).
@@ -110,21 +121,73 @@ bw config server http://localhost:8080
 bw login
 ```
 
-5. Set masterpassword to the yubikey challenge response.
-```bash
-ykpersonalize -2 -ochal-resp -ochal-hmac -o-chal-btn-trig -y #to disable touch
-
-ykman otp calculate 2 $(echo -n "test123!@#" | xxd -p) #should output a deterministic value
-
-#set this output as the master password
-```
-
-6. Create a helper script in combination with `wl-clipboard` to be used in VMs.
+5. Create a helper scripts to be used in VMs, leveraging `wl-clipboard`.
 ```bash
 sudo dnf install wl-clipboard
+```
 
+```bash
+#!/bin/bash
+
+# Check if already logged in
+BW_STATUS=$(bw status 2>/dev/null)
+
+AUTHENTICATION_STATUS=$(bw status | grep -o '"status":"[^"]*"' | cut -d':' -f2 | tr -d '"')
+
+function get_credentials {
+    read -s -p "Challenge phrase: " CHALLENGE_PHRASE
+    echo ""
+
+    # Generate response using YubiKey challenge-response
+    RESPONSE=$(ykman otp calculate 2 $(echo -n "$CHALLENGE_PHRASE" | xxd -p))
+
+    # Split response: first 5 chars for email, rest for password
+    EMAIL_PREFIX=${RESPONSE:0:5}
+    MASTER_PASSWORD=${RESPONSE:5}
+    EMAIL="${EMAIL_PREFIX}@mail.xyz"
+}
+
+echo status: "$AUTHENTICATION_STATUS"
+
+if [[ "$AUTHENTICATION_STATUS" == "unauthenticated" || "$AUTHENTICATION_STATUS" == "locked" ]]; then
+    while true; do
+        # Get credentials using challenge
+        get_credentials
+
+        # Try logging in and capture all output
+        LOGIN_OUTPUT=$(bw login "$EMAIL" "$MASTER_PASSWORD" --method 1 2>&1)
+
+        # Check if login failed due to bad password
+        if echo "$LOGIN_OUTPUT" | grep -q "incorrect"; then
+            echo "Login failed: incorrect username or password."
+            echo "Please try again."
+            echo ""
+        elif echo "$LOGIN_OUTPUT" | grep -q "already logged in"; then
+            GET_TOKEN_AGAIN=$(bw unlock "$MASTER_PASSWORD" --raw)
+	   echo "export BW_SESSION=$GET_TOKEN_AGAIN"
+            exit 0
+        else
+            # Successful login
+            break
+        fi
+    done
+
+
+    # Parse session line
+
+    SESSION_LINE=$(echo "$LOGIN_OUTPUT" | grep 'export BW_SESSION=')
+    SESSION_VALUE="${SESSION_LINE#*=}"
+    SESSION_VALUE="${SESSION_VALUE%\"}"
+    SESSION_VALUE="${SESSION_VALUE#\"}"
+
+    echo "for extended session, run: "
+    echo "export BW_SESSION=$SESSION_VALUE"
+else
+    echo "Already authenticated with Bitwarden CLI."
+fi
 
 ```
+
 
 ## Create a password rotation script for VMs
 
