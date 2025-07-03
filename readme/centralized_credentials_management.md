@@ -1,6 +1,6 @@
 # Centralized Credentials Management
 
-This Vaultwarden server is exclusively for homelab VM credentials management and is bound to `localhost` only.
+Self hosted Vaultwarden server used exclusively for homelab VM credentials management, bound to `localhost` only.
 
 ## Hardware Requirements
 
