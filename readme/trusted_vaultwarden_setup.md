@@ -121,7 +121,13 @@ ykman otp calculate 2 $(echo -n "test123!@#" | xxd -p) #should output a determin
 
 6. Create a helper script in combination with `wl-clipboard` to be used in VMs.
 ```bash
+sudo dnf install wl-clipboard
+
+
 ```
+
+## Create a password rotation script for VMs
+
 
 
 
