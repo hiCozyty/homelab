@@ -1,9 +1,8 @@
 # Homelab
 
 ## Architecture Overview
-![infra](https://github.com/user-attachments/assets/2cbfe7cf-a2ca-4356-bf9e-c5b5c327cc1d)
 
-
+![infra](https://github.com/user-attachments/assets/22de9893-fad7-4e64-984d-abbb8bae24a9)
 
 
 ## LAN/VLAN segmentation table
