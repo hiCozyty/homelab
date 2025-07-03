@@ -1,15 +1,27 @@
 # Centralized Credentials Management
 
-Self hosted Vaultwarden server used exclusively for homelab VM credentials management, bound to `localhost` only.
+Self hosted Vaultwarden server is used exclusively for homelab VM credentials management and is bound to `localhost` only.
+
+# Demonstrations
+
+## Getting credentials for RHEL host ssh session
+
+...
+
+## Getting credentials for VM10001 (kali) ssh session
+
+...
+
+## Getting credentials for VM20001 (windows) ssh session
+
+...
+
 
 ## Hardware and Software Requirements
 
 1. Fedora Daily Driver sitting in trusted LAN with at least 1GB of RAM and 2 CPU cores.
 2. Yubikey
 3. Tiling window manager (hyprland)
-
-
-## Demonstration
 
 
 ## Install Yubikey Manager on Fedora
