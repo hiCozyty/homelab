@@ -153,7 +153,7 @@ function get_credentials {
     if [[ -n "$ITEM" ]]; then
         echo "$ITEM" | wl-copy
         echo "Password copied to clipboard."
-        sleep 5; wl-copy ""&
+        (sleep 5; wl-copy "") &
     else
         read -p "No entry found. Create new? [Y/n]: " CREATE
         CREATE=${CREATE,,} # to lowercase
@@ -163,11 +163,15 @@ function get_credentials {
             exit 1
         fi
 
-        PASSWORD=$(bw generate --length 20 --uppercase --lowercase --numbers --special --session "$BW_SESSION")
-        bw create item login "{\"name\":\"$MACHINE_NAME\",\"login\":{\"username\":\"user\",\"password\":\"$PASSWORD\"}}" --session "$BW_SESSION" >/dev/null
+        PASSWORD=$(bw generate -l 20 -u -l -s -n --session "$BW_SESSION")
+
+        ENCODED=$(echo "{\"name\":\"$MACHINE_NAME\",\"type\":1,\"login\":{\"username\":\"user\",\"password\":\"$PASSWORD\"}}" | bw encode)
+
+        bw create item "$ENCODED" --session "$BW_SESSION" >/dev/null
+
         echo "$PASSWORD" | wl-copy
         echo "Password created and copied to clipboard."
-        sleep 5; wl-copy ""&
+        (sleep 5; wl-copy "") &
     fi
 }
 
@@ -191,6 +195,7 @@ if [[ "$AUTHENTICATION_STATUS" == "unauthenticated" || "$AUTHENTICATION_STATUS" 
             echo "for extended session, run: "
             echo "export BW_SESSION=$GET_TOKEN_AGAIN"
             BW_SESSION=$GET_TOKEN_AGAIN
+            get_credentials
             break
         else
             # Parse session line
@@ -203,6 +208,7 @@ if [[ "$AUTHENTICATION_STATUS" == "unauthenticated" || "$AUTHENTICATION_STATUS" 
             echo "for extended session, run: "
             echo "export BW_SESSION=$SESSION_VALUE"
             BW_SESSION=$SESSION_VALUE
+            get_credentials
             break
         fi
     done
