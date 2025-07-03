@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 TARGET_WS=9
 SCRIPT_TO_RUN="$1"
