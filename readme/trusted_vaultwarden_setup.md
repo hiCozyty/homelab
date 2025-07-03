@@ -1,4 +1,4 @@
-# Vaultwarden Server Setup
+# Centralized Credentials Management
 
 This Vaultwarden server is exclusively for homelab VM credentials management and is bound to `localhost` only.
 
@@ -96,7 +96,7 @@ ykman otp calculate 2 $(echo -n "test123!@#" | xxd -p) #should output a determin
 
 # set a part of this output as the email and the rest as the master password
 # for example, response output is 123456..... set email as 1234@mail.com and the rest as the password
-#
+# see script for example usage
 ```
 
 ## Install Bitwarden cli

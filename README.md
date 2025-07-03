@@ -19,7 +19,7 @@
 
 ## Installation
 
-[Vaultwarden Server Setup on Trusted LAN](./readme/trusted_vaultwarden_setup.md)
+[Centralized Credentials Management](./readme/centralized_credentials_management.md)
 
 [RHEL Host and pfSense VM Setup](./readme/rhel_and_pfsense_setup.md)
 
