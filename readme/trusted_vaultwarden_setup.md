@@ -109,7 +109,7 @@ which bw #confirm
 bw config server http://localhost:8080
 bw login
 ```
-'
+
 5. Set masterpassword to the yubikey challenge response.
 ```bash
 ykpersonalize -2 -ochal-resp -ochal-hmac -o-chal-btn-trig -y #to disable touch
@@ -119,7 +119,7 @@ ykman otp calculate 2 $(echo -n "test123!@#" | xxd -p) #should output a determin
 #set this output as the master password
 ```
 
-5. Create a helper script in combination with `wl-clipboard` to be used in VMs.
+6. Create a helper script in combination with `wl-clipboard` to be used in VMs.
 ```bash
 ```
 
