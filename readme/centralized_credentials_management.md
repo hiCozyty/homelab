@@ -12,8 +12,7 @@ Self hosted Vaultwarden server used exclusively for homelab VM credentials manag
 ## Demonstration
 
 
-## Install Yubikey Manager on Fedora and Set a Static Password for Long Press
-
+## Install Yubikey Manager on Fedora
 1. Install yubikey manager.
 
 ```bash
