@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Check if already logged in
-AUTHENTICATION_STATUS=$(bw status 2>/dev/null | grep -o '"status":"[^"]*"' | cut -d':' -f2 | tr -d '"')
-
 function get_challenge_response {
     read -s -p "Challenge phrase: " CHALLENGE_PHRASE
     echo ""
@@ -46,9 +43,30 @@ function get_credentials {
     fi
 }
 
+SESSION_FILE="$HOME/vaultwarden/vw-data/.bw_session"
+
+if [[ ! -s "$SESSION_FILE" ]]; then
+    # File is empty or does not exist
+    BW_SESSION='""'
+else
+    BW_SESSION=$(cat "$SESSION_FILE")
+fi
+
+
+RAW_OUTPUT=$(bw list items --session "$BW_SESSION" --nointeraction  2>&1)
+
+# Determine if the output contains the master password prompt
+if echo "$RAW_OUTPUT" | grep -q "Vault is locked" || echo "$RAW_OUTPUT" | grep -q "You are not logged in."; then
+    AUTHENTICATION_STATUS="unauthorized"
+else
+    AUTHENTICATION_STATUS="authorized"
+fi
+
+
+
 echo Status: "$AUTHENTICATION_STATUS"
 
-if [[ "$AUTHENTICATION_STATUS" == "unauthenticated" || "$AUTHENTICATION_STATUS" == "locked" ]]; then
+if [[ "$AUTHENTICATION_STATUS" == "unauthorized" ]]; then
     while true; do
         # Get credentials using challenge
         get_challenge_response
@@ -63,8 +81,11 @@ if [[ "$AUTHENTICATION_STATUS" == "unauthenticated" || "$AUTHENTICATION_STATUS" 
             echo ""
         elif echo "$LOGIN_OUTPUT" | grep -q "already logged in"; then
             GET_TOKEN_AGAIN=$(bw unlock "$MASTER_PASSWORD" --raw)
-            echo "for extended session, run: "
-            echo "export BW_SESSION=$GET_TOKEN_AGAIN"
+
+            #save token
+            echo 'saving token to: $SESSION_FILE'
+            echo "$GET_TOKEN_AGAIN" > "$SESSION_FILE"
+
             BW_SESSION=$GET_TOKEN_AGAIN
             get_credentials
             break
@@ -76,8 +97,10 @@ if [[ "$AUTHENTICATION_STATUS" == "unauthenticated" || "$AUTHENTICATION_STATUS" 
             SESSION_VALUE="${SESSION_VALUE%\"}"
             SESSION_VALUE="${SESSION_VALUE#\"}"
 
-            echo "for extended session, run: "
-            echo "export BW_SESSION=$SESSION_VALUE"
+            #update token
+            echo 'updating token: $SESSION_FILE'
+            echo "$GET_TOKEN_AGAIN" > "$SESSION_FILE"
+
             BW_SESSION=$SESSION_VALUE
             get_credentials
             break
